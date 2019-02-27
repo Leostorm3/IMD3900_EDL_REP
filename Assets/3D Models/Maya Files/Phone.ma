@@ -1,6 +1,6 @@
 //Maya ASCII 2018 scene
 //Name: Phone.ma
-//Last modified: Wed, Feb 27, 2019 10:54:47 AM
+//Last modified: Wed, Feb 27, 2019 10:57:34 AM
 //Codeset: 1252
 requires maya "2018";
 currentUnit -l centimeter -a degree -t film;
@@ -13,13 +13,13 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "EA4B11DC-434A-6662-A0B9-8A8DA4E7F591";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 10.878753153028772 42.284758615278449 21.212415952900393 ;
-	setAttr ".r" -type "double3" 1739.0616472677161 -1769.3999999995915 -1.8475655781255081e-15 ;
+	setAttr ".t" -type "double3" -28.19795642309721 14.00762500621785 21.07473027780841 ;
+	setAttr ".r" -type "double3" 1773.8616472676842 -1850.9999999995459 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "CB021612-4DCD-A555-EE62-5798808D6DE6";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 51.398014783740031;
+	setAttr ".coi" 37.793932294785883;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -1243,7 +1243,6 @@ createNode lambert -n "UV";
 createNode shadingEngine -n "lambert2SG";
 	rename -uid "33E1C9EC-462B-EF6B-B0BD-D99E8AD365D7";
 	setAttr ".ihi" 0;
-	setAttr -s 7 ".dsm";
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo1";
 	rename -uid "6320BB26-45B4-E60B-0174-19B15423EF65";
@@ -1839,6 +1838,7 @@ select -ne :defaultRenderingList1;
 select -ne :defaultTextureList1;
 	setAttr -s 2 ".tx";
 select -ne :initialShadingGroup;
+	setAttr -s 7 ".dsm";
 	setAttr ".ro" yes;
 select -ne :initialParticleSE;
 	setAttr ".ro" yes;
@@ -1851,6 +1851,8 @@ select -ne :hardwareRenderGlobals;
 	setAttr ".btrs" 512;
 select -ne :ikSystem;
 	setAttr -s 4 ".sol";
+select -ne :modelPanel1ViewSelectedSet;
+	setAttr ".ihi" 0;
 connectAttr ":defaultColorMgtGlobals.cme" "imagePlaneShape1.cme";
 connectAttr ":defaultColorMgtGlobals.cfe" "imagePlaneShape1.cmcf";
 connectAttr ":defaultColorMgtGlobals.cfp" "imagePlaneShape1.cmcp";
@@ -1942,13 +1944,6 @@ connectAttr "polySplit31.out" "polySplit32.ip";
 connectAttr "polySplit32.out" "polyDelEdge1.ip";
 connectAttr "checker2.oc" "UV.c";
 connectAttr "UV.oc" "lambert2SG.ss";
-connectAttr "flash_geoShape.iog" "lambert2SG.dsm" -na;
-connectAttr "cam_geoShape.iog" "lambert2SG.dsm" -na;
-connectAttr "upVol_geoShape.iog" "lambert2SG.dsm" -na;
-connectAttr "downVol_geoShape.iog" "lambert2SG.dsm" -na;
-connectAttr "phone_geoShape.iog" "lambert2SG.dsm" -na;
-connectAttr "on_offBut_geoShape.iog" "lambert2SG.dsm" -na;
-connectAttr "homeButton_geoShape.iog" "lambert2SG.dsm" -na;
 connectAttr "lambert2SG.msg" "materialInfo1.sg";
 connectAttr "UV.msg" "materialInfo1.m";
 connectAttr "checker2.msg" "materialInfo1.t" -na;
@@ -2007,4 +2002,11 @@ connectAttr "place2dTexture2.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "checker1.msg" ":defaultTextureList1.tx" -na;
 connectAttr "checker2.msg" ":defaultTextureList1.tx" -na;
+connectAttr "flash_geoShape.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "cam_geoShape.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "upVol_geoShape.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "downVol_geoShape.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "on_offBut_geoShape.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "phone_geoShape.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "homeButton_geoShape.iog" ":initialShadingGroup.dsm" -na;
 // End of Phone.ma
