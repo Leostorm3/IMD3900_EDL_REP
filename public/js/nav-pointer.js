@@ -1,7 +1,7 @@
 AFRAME.registerComponent('nav-pointer', {
   init: function () {
     const el = this.el;
-  
+    
     // On click, send the NPC to the target location.
     el.addEventListener('click', (e) => {
       const ctrlEl = el.sceneEl.querySelector('[nav-agent]');

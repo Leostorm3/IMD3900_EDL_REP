@@ -15,6 +15,8 @@
                     <img crossorigin="anonymous" id="environment" src="/assets/textures/wall.jpg">        
                     <a-asset-item crossorigin="anonymous" id="environment-obj" src="/assets/models/Environment2.obj"></a-asset-item>
                     
+                    <!-- Nav Mesh -->
+                    <a-entity gltf-model="navMesh.gltf" visible = "false" nav-mesh ></a-entity>
                 </a-assets>
 
                 <!-- traditional method of creating a camera and cursor component for selection. select with reticle. -->
@@ -26,8 +28,7 @@
                       scale="1 1 1">
                 </a-entity>
                   
-                <!-- Nav Mesh -->
-                <a-entity gltf-model="navMesh.gltf" nav-mesh visible = "false"></a-entity>
+
                 
                 <a-entity id="rig" movement-controls="constrainToNavMesh: true" position="0 0 5" nav-agent="speed: 1.5">
                         <a-entity camera
