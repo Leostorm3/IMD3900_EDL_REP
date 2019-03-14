@@ -12,8 +12,7 @@
                 <a-assets timeout="3000">
 
                     <!-- all assets that can be cached by browser -->
-                    <img crossorigin="anonymous" id="environment" src="/assets/textures/wall.jpg">                    
-                    
+                    <img crossorigin="anonymous" id="environment" src="/assets/textures/wall.jpg">        
                     <a-asset-item crossorigin="anonymous" id="environment-obj" src="/assets/models/Environment2.obj"></a-asset-item>
                     
                 </a-assets>
@@ -28,7 +27,7 @@
                 </a-entity>
                   
                 <!-- Nav Mesh -->
-                <a-entity gltf-model="navMesh.gltf" nav-mesh></a-entity>
+                <a-entity gltf-model="navMesh.gltf" nav-mesh visible = "false"></a-entity>
                 
                 <a-entity id="rig" movement-controls="constrainToNavMesh: true" position="0 0 5" nav-agent="speed: 1.5">
                         <a-entity camera
