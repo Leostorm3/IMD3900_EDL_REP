@@ -1,53 +1,73 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Hello, WebVR! - A-Frame</title>
+        <title>these are the puzzle testing</title>
         <meta name="description" content="Hello, WebVR! - A-Frame">
-        <script src="/js/aframe.min.js"></script>
+       <!-- <script src="/js/aframe.min.js"></script>
         <script src="https://unpkg.com/aframe-room-component/dist/aframe-room-component.min.js"></script>
-        <script src="/js/spherical-env-map.js"></script>
+        <script src="/js/spherical-env-map.js"></script>-->
+        <!--<script src="/js/puzzle.js"></script>-->
+        <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+        <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
+        <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.2.0/dist/aframe-extras.min.js"></script>
     </head>
     <body>
         <!-- main scene and we added shadows .. -->
-        <a-scene shadow="type:basic;">
+        <a-scene  inspector-plugin-recast shadow="type:pcfsoft">
                 <a-assets timeout="3000">
 
                     <!-- all assets that can be cached by browser -->
                     <img crossorigin="anonymous" id="skymap" src="/assets/textures/CloudySky.jpg">
                     <img crossorigin="anonymous" id="floormap" src="/assets/textures/floor.jpg">
-                    <img crossorigin="anonymous" id="wallmap" src="/assets/textures/wall.jpg">                      
+                    <img crossorigin="anonymous" id="wallmap" src="/assets/textures/wall.jpg">
+                    <img crossorigin="anonymous" id="environment" src="/assets/textures/wall.jpg">        
+                    <a-asset-item crossorigin="anonymous" id="environment-obj" src="/assets/models/Environment2.obj"></a-asset-item>                      
 
                     <!-- use this method if you are having problems with sound playing -->
                     <!-- sounds from "SuperSays" project : https://github.com/supermedium/supersays/tree/master/src/assets -->
-                    <a-asset-item crossorigin="anonymous" id="create-sound" src="/assets/sound/0.ogg" response-type="arraybuffer"></a-asset-item>
-                    <a-asset-item crossorigin="anonymous" id="delete-sound" src="/assets/sound/1.ogg" response-type="arraybuffer"></a-asset-item>
-
-                    <!-- this is the recommended method to preload sound though the above method seems to work consistently -->
-                    <!-- <audio id="create-sound" crossorigin="anonymous" src="/assets/sound/0.ogg" ></audio> -->
-                    <!-- <audio id="delete-sound" crossorigin="anonymous" src="/assets/sound/1.ogg" ></audio> -->
+                    
                 </a-assets>
 
                 <!-- traditional method of creating a camera and cursor component for selection. select with reticle. -->
                 <!-- Also added in controls for desktop mouse/kb -->
-                <a-entity position="0 1 0 " camera look-controls wasd-controls>
+                <a-entity id="rig" position="0 0 -6"  movement-controls="controls:keyboard, touch; speed:0.2; constrainToNavMesh: true">
+                <a-entity id="head" position="0 1.6 0" camera="userHeight:1.6"  look-controls="poointerLockEnabled:true"></a-entity>
+                <a-entity light="type: ambient; intensity: 1.0; color:#bbb;"></a-entity>
+                    <a-entity cursor="fuse:true; fuseTimeout:500;"
+                    position="0 -1 0"
+                    geometry="primitive:ring; radiusInner:0.02; radiusOuter: 0.03;"
+                    material="shader:flat; color:black">
+                    <a-entity text="value: this is a work in progress; align: center; wrap-count:20; " color="#BBB" position="0 0.6 0" rotation="0 0 0" ></a-entity>
+                   
+                  
+                  </a-entity>
+                
                 </a-entity>
 
-                <!-- sound entities we will query and play in components -->
-                <a-entity id="createSound" sound="src:#create-sound"></a-entity>
-                <a-entity id="deleteSound" sound="src:#delete-sound"></a-entity>
+               
             
                 <!-- default lighting added in manually -->
-                <a-entity light="type:directional; castShadow:true; intensity:0.6; shadowBias:-0.000001; shadowMapWidth:1024; shadowMapHeight:1024;" position="-0.5 1 1"></a-entity>
-                <a-entity light="type: ambient; intensity: 1.0; color:#bbb;"></a-entity>
-                    
-                <!-- plane so we can see shadows -->
-                <a-entity id="plane" geometry="primitive:plane; width:6.1; height:4.26;" position="0 0 0" rotation="-90 0 0" 
-                    shadow="receive:true;" material="src: #floormap; repeat: 5 5; sphericalEnvMap:#skymap; roughness:0.6; metalness:0.0;"></a-entity>
-            
+                
+                <a-entity obj-model="obj: #environment-obj"
+                material="src: #environment"
+                position="0 0 0"
+                scale="1.5 1.5 1.5"
+                shadow="cast: true">
+                </a-entity>
+                <!-- plane so we can see shadows -->  
+                <a-entity position="0 0 0" material="src: #environment"   gltf-model="/assets/models/navmesh.gltf" nav-mesh></a-entity>
+                
+                
                 <!-- manual method of creating "sky sphere" -->
-                <a-entity id="sky"
-                    geometry="primitive:sphere; radius:500;"
-                    material="shader:flat; src:#skymap; side:back; height:2048; width:2048"></a-entity>
+                
+
+                    <a-box color="red"  position="-2 0.5 -3" rotation="0 30 0" scale="0.5 0.5 0.5"> 
+                          
+                      </a-box>
+        
+                      <a-box  color="blue"  position="2 0.5 -3" rotation="0 -30 0" scale="0.5 0.5 0.5">
+                              
+                          </a-box>
 
 
         </a-scene>

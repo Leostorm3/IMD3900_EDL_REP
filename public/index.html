@@ -5,10 +5,13 @@
         <meta name="description" content="Hello, WebVR! - A-Frame">
         <script src="/js/aframe.min.js"></script>
         <script src="/js/nav-pointer.js"></script>
+        <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+        <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
+        <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.2.0/dist/aframe-extras.min.js"></script>
     </head>
     <body>
         <!-- main scene and we added shadows .. -->
-        <a-scene shadow="type:basic;">
+        <a-scene inspector-plugin-recast shadow="type:basic;">
                 <a-assets timeout="3000">
 
                     <!-- all assets that can be cached by browser -->
@@ -38,6 +41,11 @@
                                     raycaster="objects: [nav-mesh]"></a-cursor>
                         </a-entity>
                 </a-entity>
+
+                
+
+
+
 
         </a-scene>
     </body>
