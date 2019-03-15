@@ -22,6 +22,12 @@ app.get('/', function(req, res) {
     res.sendFile(__dirname + 'public/index.html');
 });
 
+app.get('/Puzzle', function(req,res) {
+    res.sendFile(__dirname + '/public/PuzzleTest.html');
+
+});
+
+
 //!!TRY: create another route to point to another web page
 
 //start server
