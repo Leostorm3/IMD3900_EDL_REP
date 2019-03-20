@@ -19,7 +19,9 @@
   "homepage": "https://github.com/PlumCantaloupe/Lesson1#readme",
   "dependencies": {
     "aframe-room-component": "^0.3.0",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
+    "googleapis": "^38.0.0",
     "three-pathfinding": "^0.9.2"
   }
 }

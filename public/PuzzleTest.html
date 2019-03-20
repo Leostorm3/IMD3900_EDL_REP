@@ -29,28 +29,35 @@
                 <!-- traditional method of creating a camera and cursor component for selection. select with reticle. -->
                 <!-- Also added in controls for desktop mouse/kb -->
                 <a-entity id="rig" position="0 0 -6"  movement-controls="controls:keyboard, touch; speed:0.2; constrainToNavMesh: true">
-                <a-entity id="head" position="0 2.5 0" camera="userHeight:2.5"  look-controls="pointerLockEnabled:true"></a-entity>
-                <a-entity light="type: ambient; intensity: 1.0; color:#bbb;"></a-entity>
+                <a-entity id="head" position="0 2.5 0" camera="userHeight:2.5"  look-controls="pointerLockEnabled:true">
+                    <a-entity scale="0.1 0.1 0.1" light="type: spot; angle:30  decay:2; distance:15; castShadow: true; penumbra:1;"  rotation="0 0 0" position="0 0 -1"></a-entity>
                     <a-entity cursor="fuse:true; fuseTimeout:500;"
-                    position="0 -1 0"
+                    position="0 0 -0.1"
+                    scale="0.1 0.1 0.1"
                     geometry="primitive:ring; radiusInner:0.02; radiusOuter: 0.03;"
                     material="shader:flat; color:black">
-                    <a-entity text="value: this is a work in progress; align: center; wrap-count:20; " color="#BBB" position="0 0.6 0" rotation="0 0 0" ></a-entity>
+                    <a-entity text="value: this is a work in progress; align: center; wrap-count:20; " color="#BBB" position="0 0.5 0" rotation="0 0 0" ></a-entity>
                    
+                
+                
+                </a-entity>
                   
                   </a-entity>
                 
                 </a-entity>
 
-               
-            
+
                 <!-- default lighting added in manually -->
+                <a-sky color="#270d2c"></a-sky>
+            
+                <a-entity light="type: directional; color: #ffffff; intensity: 0.2; " position="31 80 -50" ></a-entity>
+                <a-entity light="type: hemisphere; color: white; groundColor: #5424ff; intensity: 0.1"></a-entity>
                 
                 <a-entity obj-model="obj: #environment-obj"
                 material="src: #environment"
                 position="0 0 0"
                 scale="1.5 1.5 1.5"
-                shadow="cast: true">
+                >
                 </a-entity>
                 <!-- plane so we can see shadows -->  
                 <a-entity position="0 0 0" material="src: #environment"   gltf-model="/assets/models/navmesh.gltf" nav-mesh visible="false"></a-entity>
@@ -59,11 +66,11 @@
                 <!-- manual method of creating "sky sphere" -->
                 
 
-                    <a-box color="red"  position="-2 0.2 -3" rotation="0 30 0" scale="0.5 0.5 0.5"> 
+                    <a-box color="red"  position="-2 0.2 -3" rotation="0 30 0" scale="0.5 0.5 0.5" > 
                           
                       </a-box>
         
-                      <a-box  color="blue"  position="2 0.2 -3" rotation="0 -30 0" scale="0.5 0.5 0.5">
+                      <a-box  color="blue"  position="2 0.2 -3" rotation="0 -30 0" scale="0.5 0.5 0.5" >
                               
                           </a-box>
 
