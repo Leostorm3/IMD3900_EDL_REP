@@ -30,6 +30,7 @@ createNode camera -s -n "perspShape" -p "persp";
 	setAttr ".tp" -type "double3" -1.1920928955078125e-07 0 -1.7881393432617188e-07 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 	setAttr ".ai_translator" -type "string" "perspective";
+createNode transform -s -n "top";
 	rename -uid "4C053D79-40A8-8636-5B3E-399552FD572D";
 	setAttr ".v" no;
 	setAttr ".t" -type "double3" -198.99106796968292 2181.0966170794436 -171.30952923319202 ;
