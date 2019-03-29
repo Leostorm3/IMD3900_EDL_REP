@@ -3,24 +3,49 @@
     <head>
         <title>these are the puzzle testing</title>
         <meta name="description" content="Hello, WebVR! - A-Frame">
-       <!-- <script src="/js/aframe.min.js"></script>
-        <script src="https://unpkg.com/aframe-room-component/dist/aframe-room-component.min.js"></script>
-        <script src="/js/spherical-env-map.js"></script>-->
-        <!--<script src="/js/puzzle.js"></script>-->
         <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
         <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
         <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.2.0/dist/aframe-extras.min.js"></script>
         <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
+        <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
+        <script src="https://unpkg.com/super-hands@3.0.0/dist/super-hands.min.js"></script>
+        <script>
+            // forward mouse and touch events to the super-hands entity
+            AFRAME.registerComponent('capture-mouse', {
+              init: function () {
+                this.eventRepeater = this.eventRepeater.bind(this)
+                this.el.sceneEl.addEventListener('loaded', () => {
+                  this.el.sceneEl.canvas.addEventListener('mousedown', this.eventRepeater)
+                  this.el.sceneEl.canvas.addEventListener('mouseup', this.eventRepeater)
+                  this.el.sceneEl.canvas.addEventListener('touchstart', this.eventRepeater)
+                  this.el.sceneEl.canvas.addEventListener('touchmove', this.eventRepeater)
+                  this.el.sceneEl.canvas.addEventListener('touchend', this.eventRepeater)
+                }, {once: true})
+              },
+              eventRepeater: function (evt) {
+                if (evt.type.startsWith('touch')) {
+                  evt.preventDefault()
+                  // avoid repeating touchmove because it interferes with look-controls
+                  if (evt.type === 'touchmove') { return }
+                }
+                this.el.emit(evt.type, evt.detail)
+              }
+            })
+          </script>
     </head>
     <body>
         <!-- main scene and we added shadows .. -->
-        <a-scene  inspector-plugin-recast shadow="type:pcfsoft" physics="debug: true; friction: 0.1; restitution: 0.2; gravity: -9.8">
+        <a-scene  inspector-plugin-recast shadow="type:pcfsoft" physics="debug: false; friction: 0.1; restitution: 0.2; gravity: -9.8" avatar-recorder touch-to-click-converter>
                 <a-assets timeout="3000">
 
                     <!-- all assets that can be cached by browser -->
-                    <img crossorigin="anonymous" id="skymap" src="/assets/textures/CloudySky.jpg">
                     <img crossorigin="anonymous" id="environment" src="/assets/textures/Texture.png">        
-                    <a-asset-item crossorigin="anonymous" id="environment-obj" src="/assets/models/Environment.obj"></a-asset-item>                      
+                    <a-asset-item crossorigin="anonymous" id="environment-obj" src="/assets/models/Environment.obj"></a-asset-item>   
+                    <a-mixin id="cube" geometry="primitive: box; width: 0.33; height: 0.33; depth: 0.33"
+                    hoverable grabbable stretchable draggable droppable
+                    event-set__hoveron="_event: hover-start; material.opacity: 0.5; transparent: true"
+                    event-set__hoveroff="_event: hover-end; material.opacity: 1; transparent: false"
+                    dynamic-body shadow></a-mixin>              
 
                     <!-- use this method if you are having problems with sound playing -->
                     <!-- sounds from "SuperSays" project : https://github.com/supermedium/supersays/tree/master/src/assets -->
@@ -30,14 +55,19 @@
                 <!-- traditional method of creating a camera and cursor component for selection. select with reticle. -->
                 <!-- Also added in controls for desktop mouse/kb -->
                 <a-entity id="rig" position="-7 0 8"  movement-controls="controls:keyboard, touch; speed:0.2; constrainToNavMesh: true">
-                <a-entity id="head" position="0 2.5 0" camera="userHeight:2.5"  look-controls="pointerLockEnabled:true">
-                    <a-entity scale="0.1 0.1 0.1" light="type: spot; angle:30  decay:2; distance:15; castShadow: true; penumbra:1;"  rotation="0 0 0" position="0 0 -1"></a-entity>
+                <a-entity id="head" position="0 2.5 0" camera="userHeight:2.5"  look-controls="pointerLockEnabled:true"  capture-mouse
+                raycaster cursor="rayOrigin:mouse"
+                static-body="shape: sphere; sphereRadius: 0.001"
+                super-hands="colliderEvent: raycaster-intersection;
+                             colliderEventProperty: els;
+                             colliderEndEvent:raycaster-intersection-cleared;
+                             colliderEndEventProperty: clearedEls;">
+                    <a-entity scale="0.1 0.1 0.1" light="type: spot; angle:30 decay:2; distance:15; castShadow: true; penumbra:1;"  rotation="0 0 0" position="0 0 -1"></a-entity>
                     <a-entity cursor="fuse:true; fuseTimeout:500;"
                     position="0 0 -0.1"
                     scale="0.1 0.1 0.1"
-                    geometry="primitive:ring; radiusInner:0.02; radiusOuter: 0.03;"
-                    material="shader:flat; color:black">
-                    <a-entity text="value: this is a work in progress; align: center; wrap-count:20; " color="#BBB" position="0 0.5 0" rotation="0 0 0" ></a-entity>
+                    geometry="primitive:circle; radius:0.003;"
+                    material="shader:flat; color:white">
                    
                 
                 
@@ -70,6 +100,13 @@
                 
                 
                 <!-- manual method of creating "sky sphere" -->
+
+                <a-entity position="0 0 0" material="src: #environment"   gltf-model="/assets/models/navmesh.gltf" nav-mesh visible="false"></a-entity>
+
+
+
+                <a-entity class="cube" mixin="cube" position="-8 1.8 4" material="color: red"></a-entity>
+
                 
 
                     <a-box color="red"  dynamic-body="shape: box; mass: 2" position="-5 1.8 4" rotation="0 30 0" scale="0.5 0.5 0.5" > 
