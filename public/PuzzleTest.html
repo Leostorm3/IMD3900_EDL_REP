@@ -36,7 +36,7 @@
     </head>
     <body>
         <!-- main scene and we added shadows .. -->
-        <a-scene  inspector-plugin-recast shadow="type: pcfsoft" physics="debug: false; friction: 0.1; restitution: 0.2; gravity: -9.8" avatar-recorder touch-to-click-converter stats>
+        <a-scene  inspector-plugin-recast shadow="type: pcfsoft" physics="debug: false; friction: 0.1; restitution: 0.2; gravity: -9.8" avatar-recorder touch-to-click-converter >
                 <a-assets timeout="3000">
 
                     <!-- all assets that can be cached by browser -->
@@ -105,20 +105,24 @@
 
                 <a-entity position="0 0 0" material="src: #environment"   gltf-model="/assets/models/navmesh.gltf" nav-mesh visible="false"></a-entity>
 
-
+                <a-entity shadow="cast: true" class="cube" mixin="cube" position="-8 1 4" material="color: blue">
+                </a-entity>
 
                 <a-entity shadow="cast: true" class="cube" mixin="cube" position="-8 1.8 4" material="color: red">
                 </a-entity>
 
-                
+                <a-box id="test" color="red"  static-body="shape: box; mass: 2" position="-5 0.5 0.4" rotation="0 0 0" scale="4 1 1" > 
+                          
+                </a-box>
+                <a-box color="blue"  static-body="shape: box; mass: 2" position="-9 0.5 0.4" rotation="0 0 0" scale="4 1 1" > 
+                          
+                </a-box>
 
                     <a-box color="red"  dynamic-body="shape: box; mass: 2" position="-5 1.8 4" rotation="0 30 0" scale="0.5 0.5 0.5" > 
                           
                       </a-box>
         
-                      <a-box  color="blue"  position="2 0.2 -3" rotation="0 -30 0" scale="0.5 0.5 0.5" >
-                              
-                          </a-box>
+                      
 
 
         </a-scene>
@@ -157,7 +161,25 @@
 
             }
           });
-            </script>
+          var sceneEl =document.querySelector('a-scene');
+          var el = sceneEl.querySelector('#test');
+          console.log(el)
+el.body.applyImpulse(
+  /* impulse */        new CANNON.Vec3(0, 1, -1),
+  /* world position */ new CANNON.Vec3().copy(el.getComputedAttribute('position'))
+);
+
+          var playerEl = document.querySelector('#rig');
+playerEl.addEventListener('collide', function (e) {
+  console.log('Player has collided with body #' + e.detail.body.id);
+ 
+  e.detail.target.el;  // Original entity (playerEl).
+  e.detail.body.el;    // Other entity, which playerEl touched.
+  e.detail.contact;    // Stats about the collision (CANNON.ContactEquation).
+  e.detail.contact.ni; // Normal (direction) of the collision (CANNON.Vec3).
+});
+
+          </script>
 
 
     </body>
