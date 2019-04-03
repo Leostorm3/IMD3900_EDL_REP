@@ -14,8 +14,7 @@ AFRAME.registerComponent('pick-me',
 
         },
         pickUp: function () {
-            //we are gonna get all the cow currenttly genarated and delete them is a neat trick 
-            
+           
             
           
         }
