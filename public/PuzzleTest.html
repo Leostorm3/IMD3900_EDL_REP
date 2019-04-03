@@ -70,7 +70,7 @@
                     geometry="primitive:circle; radius:0.003;"
                     material="shader:flat; color:white">
                    
-                   <a-entity position="1 -0.5 -0.1"  scale="1 0.5 0.1" geometry="primitive: plane" material="shader: html; target: #htmlElement"></a-entity>
+                   <a-entity id="phone" position="1 -0.5 -0.1"  scale="1 0.5 0.1" geometry="primitive: plane" material="shader: html; target: #htmlElement; fps:1;"></a-entity>
                 
                 </a-entity>
                   
@@ -123,7 +123,42 @@
 
         </a-scene>
         <div style="width: 100%; height: 100%; position: fixed; left: 0; top: 0; z-index: -1; overflow: hidden">
-            <div id="htmlElement" style="width: 512px; height: 256px; background: #F8F8F8; color: #333; font-size: 24px">Hello, HTML!</div>
+            <div id="htmlElement" style="width: 512px; height: 256px; background: #F8F8F8; color: #333; font-size: 24px">
+              <p>Hello, HTML!</p>
+            
+            
+            </div>
           </div>
+
+
+          <script src="/socket.io/socket.io.js"></script>
+          <script>
+        
+            let socket = io();
+            socket.on('connect', function(){
+                console.log('connected');
+            });
+
+            socket.on('text_change', function(data){
+            
+            let textRec = data.textdata
+            var para = document.createElement("p");
+            var t = document.createTextNode(textRec);
+            var texting = document.getElementById("htmlElement");
+            console.log('text received ' +textRec);
+            para.appendChild(t);
+            texting.appendChild(para);
+          
+
+            //Phone.setAttribute('material', 'html; target: #htmlElement');
+            console.log(texting.childNodes.length);
+            if(texting.childNodes.length==6){
+                texting.removeChild(texting.childNodes[0]);
+
+            }
+          });
+            </script>
+
+
     </body>
 </html>

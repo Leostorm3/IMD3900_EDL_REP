@@ -35,6 +35,11 @@ socketIO.on('connection', function(socket) {
     socket.on('disconnect', function(data) {
         console.log(socket.id + ' has disconnected');
     });
+
+    socket.on('text' , function(data){
+        console.log('text event');
+        socketIO.sockets.emit('text_change',data);
+    });
 });
 
 
