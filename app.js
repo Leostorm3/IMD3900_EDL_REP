@@ -29,6 +29,11 @@ app.get('/Puzzle', function(req,res) {
 
 });
 
+app.get('/Test', function(req,res) {
+    res.sendFile(__dirname + '/public/tester.html');
+
+});
+
 socketIO.on('connection', function(socket) {
     console.log(socket.id + ' has connected!');
 
