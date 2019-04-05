@@ -1,4 +1,7 @@
 'use strict';
+var keychecker = false;
+var heartchecker = false;
+
 
 AFRAME.registerComponent('pick-me',
     {
