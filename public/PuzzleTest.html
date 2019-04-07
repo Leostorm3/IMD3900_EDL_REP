@@ -33,6 +33,7 @@
                 this.el.emit(evt.type, evt.detail)
               }
             })
+         
           </script>
     </head>
     <body>
@@ -106,25 +107,35 @@
 
                 <a-entity position="0 0 0" material="src: #environment"   gltf-model="/assets/models/navmesh.gltf" nav-mesh visible="false"></a-entity>
 
-                <a-entity shadow="cast: true" class="cube" mixin="cube" position="-8 1 4" material="color: blue">
+                <a-entity id="key" shadow="cast: true" class="cube" mixin="cube" position="-8 1 4" material="color: blue">
                 </a-entity>
 
-                <a-entity shadow="cast: true" class="cube" mixin="cube" position="-8 1.8 4" material="color: red">
+                <a-entity id="heart" shadow="cast: true" class="cube" mixin="cube" position="-8 1.8 4" material="color: red">
                 </a-entity>
 
-                <a-box color="red"  static-body="shape: box; mass: 2" position="-5 0.5 0.4" rotation="0 0 0" scale="4 1 1" > 
+                <a-box color="red"  static-body="shape: box; mass: 2" position="-5 0.5 0" rotation="0 0 0" scale="4 1 1" > 
+                          
+                </a-box>
+                <a-box color="blue"  static-body="shape: box; mass: 2" position="-9 0.5 0" rotation="0 0 0" scale="4 1 1" > 
+                          
+                </a-box>
+                <a-box color="white" transparent="true" opacity="0.5" color-randomizer   position="-9 1.5 0" rotation="0 0 0" scale="4 1 1" > 
+                          
+                </a-box>
+                <a-box color="white" transparent="true" opacity="0.5" color-randomizer-key   position="-5 1.5 0" rotation="0 0 0" scale="4 1 1" > 
                           
                 </a-box>
 
                     <a-box color="red"  dynamic-body="shape: box; mass: 2" position="-5 1.8 4" rotation="0 30 0" scale="0.5 0.5 0.5" > 
                           
                       </a-box>
+         
         
                       
 
 
         </a-scene>
-        <div style="width: 100%; height: 100%; position: fixed; left: 0; top: 0; z-index: -1; overflow: hidden">
+        <div style=" width: 100%; height: 100%; position: fixed; left: 0; top: 0; z-index: -1; overflow: hidden">
             <div id="htmlElement" style="width: 512px; height: 256px; background: #F8F8F8; color: #333; font-size: 24px">
               <p>Hello, HTML!</p>
             

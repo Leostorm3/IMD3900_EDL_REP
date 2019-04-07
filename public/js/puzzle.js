@@ -1,4 +1,7 @@
 'use strict';
+var keychecker = false;
+var heartchecker = false;
+
 
 AFRAME.registerComponent('pick-me',
     {
@@ -28,5 +31,34 @@ AFRAME.registerComponent('pick-me',
           this.el.addEventListener('raycaster-intersection', function () {
             console.log('Player hit something!');
           });
+        }
+      });
+
+      AFRAME.registerComponent('color-randomizer', {
+        play: function() {
+          this.el.addEventListener('drag-drop', function(evt) {
+            var Key = evt.detail.dropped.id;
+            console.log(Key);
+            if(Key == "key"){
+            evt.detail.dropped.setAttribute('material', 'color',
+              '#'+(Math.random()*0xFFFFFF<<0).toString(16))
+             // notify super-hands that the gesture was accepted
+            evt.preventDefault()
+            }
+          })
+        }
+      });
+      AFRAME.registerComponent('color-randomizer-key', {
+        play: function() {
+          this.el.addEventListener('drag-drop', function(evt) {
+            var Key = evt.detail.dropped.id;
+            console.log(Key);
+            if(Key == "heart"){
+            evt.detail.dropped.setAttribute('material', 'color',
+              '#'+(Math.random()*0xFFFFFF<<0).toString(16))
+             // notify super-hands that the gesture was accepted
+            evt.preventDefault()
+            }
+          })
         }
       });
