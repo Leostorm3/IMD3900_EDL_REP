@@ -2,6 +2,8 @@
 var keychecker = false;
 var heartchecker = false;
 
+var Balance_weight;
+var Banlance_answer = 150;
 
 AFRAME.registerComponent('pick-me',
     {
@@ -34,7 +36,7 @@ AFRAME.registerComponent('pick-me',
         }
       });
 
-      AFRAME.registerComponent('color-randomizer', {
+      AFRAME.registerComponent('check-key', {
         play: function() {
           this.el.addEventListener('drag-drop', function(evt) {
             var Key = evt.detail.dropped.id;
@@ -48,7 +50,7 @@ AFRAME.registerComponent('pick-me',
           })
         }
       });
-      AFRAME.registerComponent('color-randomizer-key', {
+      AFRAME.registerComponent('check-heart', {
         play: function() {
           this.el.addEventListener('drag-drop', function(evt) {
             var Key = evt.detail.dropped.id;
@@ -61,4 +63,27 @@ AFRAME.registerComponent('pick-me',
             }
           })
         }
+      });
+
+
+      AFRAME.registerComponent('Balance-puzlle', {
+        play: function() {
+          this.el.addEventListener('drag-drop', function(evt) {
+            var Weight = evt.detail.dropped.id;
+            
+            if(Key == "heart"){
+            evt.detail.dropped.setAttribute('material', 'color',
+              '#'+(Math.random()*0xFFFFFF<<0).toString(16))
+             // notify super-hands that the gesture was accepted
+            evt.preventDefault()
+            }
+          })
+        }
+      });
+
+      AFRAME.registerComponent('reset-weight-puzzle', {
+        init: function () {
+           Balance_weight = 0; 
+
+        }  
       });
