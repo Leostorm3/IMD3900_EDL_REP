@@ -34,7 +34,7 @@ AFRAME.registerComponent('pick-me',
         }
       });
 
-      AFRAME.registerComponent('color-randomizer', {
+      AFRAME.registerComponent('check-key', {
         play: function() {
           this.el.addEventListener('drag-drop', function(evt) {
             var Key = evt.detail.dropped.id;
@@ -48,7 +48,7 @@ AFRAME.registerComponent('pick-me',
           })
         }
       });
-      AFRAME.registerComponent('color-randomizer-key', {
+      AFRAME.registerComponent('Check-heart', {
         play: function() {
           this.el.addEventListener('drag-drop', function(evt) {
             var Key = evt.detail.dropped.id;
