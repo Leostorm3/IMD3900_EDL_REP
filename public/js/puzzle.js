@@ -83,7 +83,11 @@ AFRAME.registerComponent('pick-me',
 
       AFRAME.registerComponent('reset-weight-puzzle', {
         init: function () {
-           Balance_weight = 0; 
+          var el = this.el;
 
+            el.addEventListener('click', function () {
+              Balance_weight=0; 
+        
+      });
         }  
       });
