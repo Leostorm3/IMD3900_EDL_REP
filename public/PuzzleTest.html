@@ -42,7 +42,9 @@
                 <a-assets>
 
                     <!-- all assets that can be cached by browser -->
-                    <img crossorigin="anonymous" id="environment" src="/assets/models/EnvironmentTexture.png">        
+                    <img crossorigin="anonymous" id="environment" src="/assets/textures/EnvironmentTexture.png">
+                    <img crossorigin="anonymous" id="die" src="/assets/textures/DieTexture.png"
+                    <img crossorigin="anonymous" id="weighttexture" src="/assets/textures/weighttexture.png">        
                     <a-asset-item crossorigin="anonymous" id="environment-obj" src="/assets/models/Environment.glb"></a-asset-item>
                     <a-asset-item crossorigin="anonymous" id="dice-obj" src="/assets/models/Dice.obj"></a-asset-item>
                     <a-asset-item crossorigin="anonymous" id="weight-obj" src="/assets/models/Weight.obj"></a-asset-item>
@@ -90,7 +92,6 @@
                 <a-entity light="type: hemisphere; color: white; groundColor: #5424ff; intensity: 0.1"></a-entity>
                 
                 <a-entity  gltf-model="#environment-obj"
-               
                 position="0 0 0"
                 scale="1.5 1.5 1.5"
                 body="type: static; shape: none;"
@@ -111,7 +112,7 @@
 
                 <a-entity id="weight1" 
                 obj-model="obj: #weight-obj"
-                material="src:"
+                material="src: #weighttexture"
                 color="blue"
                 class="cube" 
                 mixin="cube"
@@ -124,7 +125,7 @@
 
                 <a-entity id="weight2" 
                 obj-model="obj: #weight-obj"
-                material="src:"
+                material="src: #weighttexture"
                 color="red"
                 class="cube" 
                 mixin="cube"
@@ -137,7 +138,7 @@
 
                 <a-entity id="weight3" 
                 obj-model="obj: #weight-obj"
-                material="src:"
+                material="src: #weighttexture"
                 color="green"
                 class="cube" 
                 mixin="cube"
@@ -151,7 +152,7 @@
                 
                 <a-entity id="dice" 
                 obj-model="obj: #dice-obj"
-                material="src:"
+                material="src: #die"
                 class="cube" 
                 mixin="cube"
                 dynamic-body="shape: box; mass: 2" 
