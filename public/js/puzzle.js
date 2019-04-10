@@ -208,8 +208,30 @@ AFRAME.registerComponent('pick-me',
               }
 
 
-
             }
+            
+
+
+        
+      });
+        }  
+      });
+
+      AFRAME.registerComponent('escape', {
+        init: function () {
+          var el = this.el;
+          var cam =  document.getElementById("head");
+
+            el.addEventListener('click', function () {
+              if(balance_cheker==true && color_order==true){
+                document.getElementById("textE").setAttribute('text', "value: You made it out for now....");
+                setInterval(function(){
+                  window.location.href = "index.html";
+                }, 6000);
+
+              }
+              
+            
 
 
         
