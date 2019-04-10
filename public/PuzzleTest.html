@@ -38,7 +38,7 @@
     </head>
     <body>
         <!-- main scene and we added shadows .. -->
-        <a-scene inspector-plugin-recast shadow="type: pcfsoft" physics="debug: true; friction: 0.1; restitution: 0.2; gravity: -9.8" avatar-recorder touch-to-click-converter >
+        <a-scene inspector-plugin-recast shadow="type: pcfsoft" physics="debug: false; friction: 0.1; restitution: 0.2; gravity: -9.8" avatar-recorder touch-to-click-converter  sound="src: #ambience; loop:true; autoplay:true; volume:0.3;">
                 <a-assets>
 
                     <!-- all assets that can be cached by browser -->
@@ -49,6 +49,7 @@
                     <a-asset-item crossorigin="anonymous" id="dice-obj" src="/assets/models/Dice.obj"></a-asset-item>
                     <a-asset-item crossorigin="anonymous" id="weight-obj" src="/assets/models/Weight.obj"></a-asset-item>
                     <a-asset-item crossorigin="anonymous" id="button-obj" src="/assets/models/button.obj"></a-asset-item>
+                    <audio id="ambience" src="/assets/sound/TitleMusic.mp3"></audio>
                     <a-mixin id="cube" geometry="primitive: box; width: 0.33; height: 0.33; depth: 0.33"
                     hoverable grabbable stretchable draggable droppable
                     event-set__hoveron="_event: hover-start; material.opacity: 0.5; transparent: true"
@@ -113,7 +114,7 @@
                 shape__chair_top="shape: box; halfExtents: 0.30 0.03 0.265; offset: -4.64 0.67 3.8;"
                 shape__chair_base="shape: box; halfExtents: 0.30 0.35 0.265; offset: -4.64 0.35 3.8;"
                 shape__chair_back="shape: box; halfExtents: 0.09 0.37 0.265; offset: -4.37 1.1 3.8;"
-                    shadow="receive: true">
+                shadow="receive: true;">
                 </a-entity>
 
                 <a-entity id="weight1" 
@@ -195,7 +196,7 @@
                 <a-box id="b_base" color="white"  static-body="shape: box;"  position="-10.3 0.5 3.2" rotation="0 90 0" scale="2 2 2" > 
                    
                 </a-box>
-           <a-entity id="textb" text="value: 55; align:center;" scale="10 10 1" position="-9.28 0.7 3.17" rotation="0 90 0"></a-entity>
+           <a-entity id="textb" text="align:center;" scale="10 10 1" position="-9.28 0.7 3.17" rotation="0 90 0"></a-entity>
 
 
                       
