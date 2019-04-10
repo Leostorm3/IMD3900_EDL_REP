@@ -43,7 +43,9 @@
 
                     <!-- all assets that can be cached by browser -->
                     <img crossorigin="anonymous" id="environment" src="/assets/textures/Texture.png">        
-                    <a-asset-item crossorigin="anonymous" id="environment-obj" src="/assets/models/Environment.obj"></a-asset-item>   
+                    <a-asset-item crossorigin="anonymous" id="environment-obj" src="/assets/models/Environment.obj"></a-asset-item>
+                    <a-asset-item crossorigin="anonymous" id="dice-obj" src="/assets/models/Dice.obj"></a-asset-item>
+                    <a-asset-item crossorigin="anonymous" id="weight-obj" src="/assets/models/Weight.obj"></a-asset-item>
                     <a-mixin id="cube" geometry="primitive: box; width: 0.33; height: 0.33; depth: 0.33"
                     hoverable grabbable stretchable draggable droppable
                     event-set__hoveron="_event: hover-start; material.opacity: 0.5; transparent: true"
@@ -100,7 +102,58 @@
                 shape__top="shape: box; halfExtents: 2.82 0.1 4.21; offset: -4.685 3.08 3.72;"
                     shadow="receive: true">
                 </a-entity>
-                <!-- plane so we can see shadows -->  
+
+                <a-entity id="weight1" 
+                obj-model="obj: #weight-obj"
+                material="src:"
+                color="blue"
+                class="cube" 
+                mixin="cube"
+                dynamic-body="shape: box; mass: 30" 
+                position="-5 0.5 2" 
+                rotation="0 0 0" 
+                scale="1 1 1"
+                shadow="cast: true">
+                </a-entity>
+
+                <a-entity id="weight2" 
+                obj-model="obj: #weight-obj"
+                material="src:"
+                color="red"
+                class="cube" 
+                mixin="cube"
+                dynamic-body="shape: box; mass: 25" 
+                position="-5 0.5 2.5" 
+                rotation="0 0 0" 
+                scale="1 1 1"
+                shadow="cast: true">
+                </a-entity> 
+
+                <a-entity id="weight3" 
+                obj-model="obj: #weight-obj"
+                material="src:"
+                color="green"
+                class="cube" 
+                mixin="cube"
+                dynamic-body="shape: box; mass: 20" 
+                position="-5 0.5 2.5" 
+                rotation="0 0 0" 
+                scale="1 1 1"
+                shadow="cast: true">
+                </a-entity> 
+
+                
+                <a-entity id="dice" 
+                obj-model="obj: #dice-obj"
+                material="src:"
+                class="cube" 
+                mixin="cube"
+                dynamic-body="shape: box; mass: 2" 
+                position="-5 0.5 0.5" 
+                rotation="0 0 0" 
+                scale="1 1 1"
+                shadow="cast: true">
+                </a-entity> 
                 
                 
                 <!-- manual method of creating "sky sphere" -->
