@@ -224,7 +224,9 @@ AFRAME.registerComponent('pick-me',
 
             el.addEventListener('click', function () {
               if(balance_cheker==true && color_order==true){
-                document.getElementById("textE").setAttribute('text', "value: You made it out for now....");
+                document.getElementById("texte").setAttribute('text', "value: You made it out for now....");
+                document.getElementById("flash").setAttribute('animation','property: intensity; from:1.0; to: 0; dur: 2000; easing: linear')
+
                 setInterval(function(){
                   window.location.href = "index.html";
                 }, 6000);

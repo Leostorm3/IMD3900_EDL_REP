@@ -76,7 +76,7 @@
                              colliderEventProperty: els;
                              colliderEndEvent:raycaster-intersection-cleared;
                              colliderEndEventProperty: clearedEls;">
-                    <a-entity scale="0.1 0.1 0.1" light="type: spot; angle:30 decay:2; distance:15; castShadow:true; penumbra:0.5; shadowMapHeight: 350; shadowMapWidth: 350; shadowRadius:2; shadowCameraVisible: false;"  rotation="0 0 0" position="0 0 -1"></a-entity>
+                    <a-entity id="flash" scale="0.1 0.1 0.1" light="type: spot; angle:30 decay:2; distance:15; castShadow:true; penumbra:0.5; shadowMapHeight: 350; shadowMapWidth: 350; shadowRadius:2; shadowCameraVisible: false;"  rotation="0 0 0" position="0 0 -1"></a-entity>
                     <a-entity cursor="fuse:true; fuseTimeout:500;"
                     position="0 0 -0.1"
                     scale="0.1 0.1 0.1"
@@ -190,7 +190,7 @@
                 class="button" 
                 mixin="button"
                 static-body="shape: none" 
-                position="-2.8 2.25 10.43" 
+                position="-2.8 2.25 7.122" 
                 rotation="90 0 90" 
                 scale="1 1 1"
                 shadow="cast: true">
@@ -211,6 +211,7 @@
                 </a-box>
            <a-entity id="textb" text="align:center; value:55" scale="10 10 1" position="-9.28 0.7 3.17" rotation="0 90 0"></a-entity>
            <a-entity id="textc" text="align:center; " scale="10 10 1" position="-11.2 1.5 6.48" rotation="0 90 0"></a-entity>
+           <a-entity id="texte" text="align:center; " scale="10 10 1" position="-7.018 1.5 4.524" rotation="0 0 0"></a-entity>
 
 
                       
