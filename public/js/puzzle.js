@@ -84,7 +84,7 @@ AFRAME.registerComponent('pick-me',
               if(add_w1 ==false){
                 Balance_weight = Balance_weight + 10;
                 add_w1 = true;
-                console.log(Balance_weight);a
+                console.log(Balance_weight);
               }
               
               
@@ -124,9 +124,7 @@ AFRAME.registerComponent('pick-me',
 
             el.addEventListener('click', function () {
               Balance_weight=0; 
-              document.getElementById("Weight1").setAttribute('position',-8 + " " + 1.8 + " " + 6);
-              document.getElementById("Weight2").setAttribute('position',-8.5 + " " + 1.8 + " " + 6);
-              document.getElementById("Weight3").setAttribute('position',-9 + " " + 1.8 + " " + 6);
+              
         
       });
         }  
@@ -143,11 +141,12 @@ AFRAME.registerComponent('pick-me',
                 balance_cheker = true;
                 document.getElementById("textb").setAttribute('text', "value:Weight puzzle done");
               }else{
+                console.log("test")
                 Balance_weight=0; 
-                document.getElementById("Weight1").setAttribute('position',-8 + " " + 1.8 + " " + 6);
-                document.getElementById("Weight2").setAttribute('position',-8.5 + " " + 1.8 + " " + 6);
-                document.getElementById("Weight3").setAttribute('position',-9 + " " + 1.8 + " " + 6);
-
+                add_w1 = false;
+                add_w2 = false;
+                add_w3 = false;
+                
 
               }
             }

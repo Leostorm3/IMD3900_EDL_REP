@@ -143,6 +143,19 @@ body {
     margin: 10px auto;
    
 }
+
+.balance-div {
+    width: 90%;
+    transition: all 150ms ease-in-out;
+    margin: 10px auto;
+   
+}
+.poem-div {
+    width: 90%;
+    transition: all 150ms ease-in-out;
+    margin: 10px auto;
+   
+}
 #text{
     width: 100%;
 }

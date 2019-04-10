@@ -13,7 +13,7 @@
 <body>
     <div id="Main">
         <header>
-            <h1 id="title">this is the controller client test</h1>
+            <h1 id="title">Help the user escape</h1>
         </header>
        <!-- <div id="test-button">
 
@@ -37,27 +37,18 @@
                         <div class="option-box" id="Text_button">Send Text</div>
                     </div>
                     <div class="w3-half w3-container">
-                        <div class="option-box"> option 2</div>
+                        <div class="option-box" id="balance_button">  weights</div>
                     </div>
 
                 </div>
                 <div class="w3-row-padding w3-border">
                     <div class="w3-half w3-container">
-                        <div class="option-box">option 3</div>
+                        <div class="option-box" id="poem_button">poem</div>
                     </div>
-                    <div class=" w3-half w3-container">
-                        <div class="option-box"> option 4</div>
-                    </div>
+                    
 
                 </div>
-                <div class="w3-row-padding w3-border">
-                    <div class="w3-half w3-container">
-                        <div class="option-box"> option 5</div>
-                    </div>
-                    <div class="w3-half w3-container">
-                        <div class="option-box"> option 6</div>
-                    </div>
-                </div>
+               
 
             </div>
         </div>
@@ -70,15 +61,25 @@
                 <button id="submit" style="background-color: blue; color: whitesmoke;">send</button>
             </div>
 
-            <div class="textarea-div">
+            <div class="balance-div">
                 <div class="hidden" style="display: none;">
                     <p>Weights Calculation must for freedom</p>
-                    <p> </p>
-                    <p> </p>
-                    <p> </p>
+                    <p>big: (4*5)-10 </p>
+                    <p>med: (4*big)+5 </p>
+                    <p>sml: (big + med)-25 </p>
                     
                 </div>
         </div>
+        <div class="poem-div">
+            <div class="hidden" style="display: none;">
+                <p>first came the seas that then form into rivers</p>
+                <p>a river of what keeps us alive </p>
+                <p>a river of sky depp and vast</p>
+                <p>then a river of moss to top it all off </p>
+                <p> solve the truth and set it free </p>
+                
+            </div>
+    </div>
       
 </div>
             <script src="/socket.io/socket.io.js"></script>
@@ -106,7 +107,8 @@
                 //this wil control all the hide text stuff
                 Menu = document.querySelector('.option-boxes>div');
                 Textarea =document.querySelector('.textarea-div>div');
-                Balance = 
+                Balance = document.querySelector('.balance-div>div');
+                poem = document.querySelector('.poem-div>div');
                 hidecontent = false;
                 
                 document.querySelector('#menu_appear').addEventListener('click', function () {
@@ -148,10 +150,43 @@
                   
                 });
 
+             
+
+                //balance menu
+                document.querySelector('#balance_button').addEventListener('click', function () {
+                    Menu.className = "hidden";
+                        hidecontent = false;
+                        setTimeout(function(){
+                        Menu.style.display="none"; 
+                        Balance.style.display="block";
+                        }, 150);
+                        setTimeout(function(){
+                            Balance.className = "visible";
+                        }, 300);
+                  
+                });
+
+                  document.querySelector('#poem_button').addEventListener('click', function () {
+                    Menu.className = "hidden";
+                        hidecontent = false;
+                        setTimeout(function(){
+                        Menu.style.display="none"; 
+                        poem.style.display="block";
+                        }, 150);
+                        setTimeout(function(){
+                            poem.className = "visible";
+                        }, 300);
+                  
+                });
+
                 function hideallContent(){
+                    Balance.className = "hidden";
                     Textarea.className = "hidden";
+                    poem.className = "hidden";
                     setTimeout(function(){
+                        Balance.style.display="none";
                         Textarea.style.display="none";
+                        poem.style.display="none";
                         }, 150);
                 }
 
