@@ -39,11 +39,11 @@
     <body>
         <!-- main scene and we added shadows .. -->
         <a-scene  inspector-plugin-recast shadow="type: pcfsoft" physics="debug: true; friction: 0.1; restitution: 0.2; gravity: -9.8" avatar-recorder touch-to-click-converter >
-                <a-assets timeout="3000">
+                <a-assets>
 
                     <!-- all assets that can be cached by browser -->
-                    <img crossorigin="anonymous" id="environment" src="/assets/textures/Texture.png">        
-                    <a-asset-item crossorigin="anonymous" id="environment-obj" src="/assets/models/Environment.obj"></a-asset-item>
+                    <img crossorigin="anonymous" id="environment" src="/assets/models/EnvironmentTexture.png">        
+                    <a-asset-item crossorigin="anonymous" id="environment-obj" src="/assets/models/Environment.glb"></a-asset-item>
                     <a-asset-item crossorigin="anonymous" id="dice-obj" src="/assets/models/Dice.obj"></a-asset-item>
                     <a-asset-item crossorigin="anonymous" id="weight-obj" src="/assets/models/Weight.obj"></a-asset-item>
                     <a-mixin id="cube" geometry="primitive: box; width: 0.33; height: 0.33; depth: 0.33"
@@ -89,8 +89,8 @@
                 <a-entity light="type: directional; color: #ffffff; intensity: 0.05; " position="31 80 -50" ></a-entity>
                 <a-entity light="type: hemisphere; color: white; groundColor: #5424ff; intensity: 0.1"></a-entity>
                 
-                <a-entity obj-model="obj: #environment-obj"
-                material="src: #environment"
+                <a-entity  gltf-model="#environment-obj"
+               
                 position="0 0 0"
                 scale="1.5 1.5 1.5"
                 body="type: static; shape: none;"
