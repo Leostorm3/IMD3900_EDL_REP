@@ -2,7 +2,7 @@
 var keychecker = false;
 var heartchecker = false;
 
-var Balance_weight;
+var Balance_weight =0;
 var Banlance_answer = 55;
 var balance_cheker=false;
 var color_order=false;
@@ -75,15 +75,16 @@ AFRAME.registerComponent('pick-me',
       });
 
 
-      AFRAME.registerComponent('Balance-puzlle', {
+      AFRAME.registerComponent('balance-puzlle', {
         play: function() {
           this.el.addEventListener('drag-drop', function(evt) {
             var Weight = evt.detail.dropped.id;
-            var NumberWeight = Balance_weight;
-            if(Weight == "Weight1"){
+            
+            if(Weight == "weight1"){
               if(add_w1 ==false){
                 Balance_weight = Balance_weight + 10;
                 add_w1 = true;
+                console.log(Balance_weight);a
               }
               
               
@@ -92,28 +93,28 @@ AFRAME.registerComponent('pick-me',
             evt.preventDefault()
             }
 
-            if(Weight == "Weight2"){
+            if(Weight == "weight2"){
               if(add_w2 ==false){
                 Balance_weight = Balance_weight + 45;
                 add_w2 = true;
+                console.log(Balance_weight);
               }
 
              // notify super-hands that the gesture was accepted
             evt.preventDefault()
             }
-            if(Weight == "Weight3"){
+            if(Weight == "weight3"){
               if(add_w3 ==false){
                 Balance_weight = Balance_weight + 30;
                 add_w3 = true;
+                console.log(Balance_weight);
               }
              // notify super-hands that the gesture was accepted
             evt.preventDefault()
             }
-            if (Balance_weight ==Banlance_answer){
-              balance_cheker = true;
-              document.getElementById("text").setAttribute('value', "Weight puzzle done");
-            }
+            
           })
+         
         }
       });
 
@@ -131,16 +132,19 @@ AFRAME.registerComponent('pick-me',
         }  
       });
 
-      AFRAME.registerComponent('Check-answer', {
+      AFRAME.registerComponent('check-answer', {
         init: function () {
           var el = this.el;
           var cam =  document.getElementById("head");
 
             el.addEventListener('click', function () {
-             if (balance_cheker ==true && color_order==true && texter==true && keycheker == true){
-              cam.setAttribute('look-controls', "enabled:false");
-              cam.setAttribute('animation', "property: position; to: 5 1.6 0; dur: 1500; easing: linear");
-              document.getElementById("textH").setAttribute('value', "And now you are free....");
+              if (Balance_weight ==Banlance_answer){
+                balance_cheker = true;
+                document.getElementById("textb").setAttribute('text', "value:Weight puzzle done");
+              }
+             if (balance_cheker ==true){
+              
+              
 
              }
         
