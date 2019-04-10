@@ -117,7 +117,7 @@
                 class="cube" 
                 mixin="cube"
                 dynamic-body="shape: box; mass: 30" 
-                position="-5 0.5 2" 
+                position="-8.25 1.6 0.45" 
                 rotation="0 0 0" 
                 scale="1 1 1"
                 shadow="cast: true">
@@ -130,7 +130,7 @@
                 class="cube" 
                 mixin="cube"
                 dynamic-body="shape: box; mass: 25" 
-                position="-5 0.5 2.5" 
+                position="-7.1 1.6 0.5" 
                 rotation="0 0 0" 
                 scale="1 1 1"
                 shadow="cast: true">
@@ -143,7 +143,7 @@
                 class="cube" 
                 mixin="cube"
                 dynamic-body="shape: box; mass: 20" 
-                position="-5 0.5 2.5" 
+                position="-6 1.6 -0.15" 
                 rotation="0 0 0" 
                 scale="1 1 1"
                 shadow="cast: true">
@@ -167,35 +167,19 @@
 
                 <a-entity position="0 0 0" material="src: #environment"   gltf-model="/assets/models/navmesh.gltf" nav-mesh visible="false"></a-entity>
 
-                <a-entity id="key" shadow="cast: true" class="cube" mixin="cube" position="-8 1 4" material="color: blue">
-                </a-entity>
+                
 
-                <a-entity id="heart" shadow="cast: true" class="cube" mixin="cube" position="-8 1.8 4" material="color: red">
-                </a-entity>
-
-                <a-box color="red"  static-body="shape: box; mass: 2" position="-5 0.5 0" rotation="0 0 0" scale="4 1 1" > 
+               
+                <a-box color="white" transparent="true" opacity="0.5" check-heart  position="-11 2 3.2" rotation="0 90 0" scale="2 2 2" > 
                           
                 </a-box>
-                <a-box color="blue"  static-body="shape: box; mass: 2" position="-9 0.5 0" rotation="0 0 0" scale="4 1 1" > 
+                <a-box color="white" transparent="true" opacity="0.5"  position="-11 2 3.2" rotation="0 90 0" scale="2 2 2" > 
                           
                 </a-box>
-                <a-box color="white" transparent="true" opacity="0.5" check-heart  position="-9 1.5 0" rotation="0 0 0" scale="4 1 1" > 
-                          
-                </a-box>
-                <a-box color="white" transparent="true" opacity="0.5" check-key  position="-5 1.5 0" rotation="0 0 0" scale="4 1 1" > 
-                          
-                </a-box>
+          
 
-                    <a-box color="red"  dynamic-body="shape: box; mass: 2" position="-5 1.8 4" rotation="0 30 0" scale="0.5 0.5 0.5" > 
-                          
-                      </a-box>
 
-                      <a-entity id="Weight1" shadow="cast: true" class="cube" mixin="cube" position="-8 1.8 6" material="color: #F8F8F8">
-                      </a-entity>
-                      <a-entity id="Weight2" shadow="cast: true" class="cube" mixin="cube" position="-8.5 1.8 6" material="color: #F8F8F8">
-                      </a-entity>
-                      <a-entity id="Weight3" shadow="cast: true" class="cube" mixin="cube" position="-9 1.8 6" material="color: #F8F8F8">
-                      </a-entity>
+                      
          
         
                       
@@ -204,7 +188,7 @@
         </a-scene>
         <div style=" width: 100%; height: 100%; position: fixed; left: 0; top: 0; z-index: -1; overflow: hidden">
             <div id="htmlElement" style="width: 512px; height: 256px; background: #F8F8F8; color: #333; font-size: 24px">
-              <p>Hello, HTML!</p>
+              <p></p>
             
             
             </div>
