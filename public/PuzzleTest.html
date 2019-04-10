@@ -43,16 +43,22 @@
 
                     <!-- all assets that can be cached by browser -->
                     <img crossorigin="anonymous" id="environment" src="/assets/textures/EnvironmentTexture.png">
-                    <img crossorigin="anonymous" id="die" src="/assets/textures/DieTexture.png"
-                    <img crossorigin="anonymous" id="weighttexture" src="/assets/textures/weighttexture.png">        
+                    <img crossorigin="anonymous" id="die" src="/assets/textures/DieTexture.png">
+                    <img crossorigin="anonymous" id="weighttexture" src="/assets/textures/weighttexture.jpg">        
                     <a-asset-item crossorigin="anonymous" id="environment-obj" src="/assets/models/Environment.glb"></a-asset-item>
                     <a-asset-item crossorigin="anonymous" id="dice-obj" src="/assets/models/Dice.obj"></a-asset-item>
                     <a-asset-item crossorigin="anonymous" id="weight-obj" src="/assets/models/Weight.obj"></a-asset-item>
+                    <a-asset-item crossorigin="anonymous" id="button-obj" src="/assets/models/button.obj"></a-asset-item>
                     <a-mixin id="cube" geometry="primitive: box; width: 0.33; height: 0.33; depth: 0.33"
                     hoverable grabbable stretchable draggable droppable
                     event-set__hoveron="_event: hover-start; material.opacity: 0.5; transparent: true"
                     event-set__hoveroff="_event: hover-end; material.opacity: 1; transparent: false"
-                    dynamic-body shadow></a-mixin>              
+                    dynamic-body shadow></a-mixin>
+                    <a-mixin id="button" geometry="primitive: box; width: 0.33; height: 0.33; depth: 0.33;"
+                    hoverable grabbable stretchable draggable droppable
+                    event-set__hoveron="_event: hover-start; material.opacity: 0.5; transparent: true"
+                    event-set__hoveroff="_event: hover-end; material.opacity: 1; transparent: false"
+                    static-body shadow></a-mixin>            
 
                     <!-- use this method if you are having problems with sound playing -->
                     <!-- sounds from "SuperSays" project : https://github.com/supermedium/supersays/tree/master/src/assets -->
@@ -158,6 +164,18 @@
                 dynamic-body="shape: box; mass: 2" 
                 position="-5 0.5 0.5" 
                 rotation="0 0 0" 
+                scale="1 1 1"
+                shadow="cast: true">
+                </a-entity> 
+
+                <a-entity id="button" 
+                obj-model="obj: #button-obj"
+                material="shader: flat; color: red"
+                class="button" 
+                mixin="button"
+                static-body="shape: none" 
+                position="-2.8 2.25 10.43" 
+                rotation="90 0 90" 
                 scale="1 1 1"
                 shadow="cast: true">
                 </a-entity> 
