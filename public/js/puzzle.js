@@ -6,13 +6,17 @@ var Balance_weight =0;
 var Banlance_answer = 55;
 var balance_cheker=false;
 var color_order=false;
-var keycheker=false;
-var texter= false;
+
 var add_w1 = false;
 var add_w2 = false; 
 var add_w3 = false; 
 
 
+var add_R = false;
+var add_B = false; 
+var add_G = false; 
+
+var colorAr = [];
 
 AFRAME.registerComponent('pick-me',
     {
@@ -118,6 +122,39 @@ AFRAME.registerComponent('pick-me',
         }
       });
 
+      AFRAME.registerComponent('color-puzlle', {
+        init: function () {
+          var el = this.el;
+          el.addEventListener('click', function () {
+            console.log(el.id);
+            if(el.id=="green"){
+              if(add_G== false){
+              colorAr.push("g");
+              add_G=true;
+              }
+
+            }
+            if(el.id== "red"){
+              if(add_R== false){
+                colorAr.push("r");
+                add_R=true;
+                }
+            }
+            if(el.id== "blue"){
+              if(add_B== false){
+                colorAr.push("b");
+                add_B=true;
+                }
+              
+            }
+
+
+          });
+          }
+         
+       
+      });
+
       AFRAME.registerComponent('reset-weight-puzzle', {
         init: function () {
           var el = this.el;
@@ -155,6 +192,26 @@ AFRAME.registerComponent('pick-me',
 
               }
             }
+            if(color_order==false){
+              if (colorAr[0] =="r" && colorAr[1] =="b" && colorAr[2] =="g"){
+                color_order = true;
+                document.getElementById("textc").setAttribute('text', "value:color puzzle done");
+              }else{
+                colorAr =[];
+                document.getElementById("textc").setAttribute('text', "value: wrong order");
+                 add_R = false;
+                 add_B = false; 
+                 add_G = false; 
+
+
+
+              }
+
+
+
+            }
+
+
         
       });
         }  
