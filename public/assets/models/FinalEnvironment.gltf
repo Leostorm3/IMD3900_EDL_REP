@@ -1,0 +1,239 @@
+{
+    "asset": {
+        "copyright": "(C)2019 Tiffany",
+        "generator": "Maya2glTF V0.9.10 b7c0eed",
+        "version": "2.0"
+    },
+    "scenes": [
+        {
+            "nodes": [
+                0
+            ]
+        }
+    ],
+    "scene": 0,
+    "nodes": [
+        {
+            "children": [
+                1
+            ],
+            "translation": [
+                -4.592460632324219,
+                -0.0,
+                3.804252862930298
+            ],
+            "scale": [
+                0.008439569734036923,
+                0.008439569734036923,
+                0.008439569734036923
+            ],
+            "name": "Environment_5:Room1"
+        },
+        {
+            "mesh": 0,
+            "translation": [
+                -1.2181272506713868,
+                0.0006523919873870909,
+                1.244415283203125
+            ],
+            "name": "Environment_5:Room1:PIV"
+        }
+    ],
+    "meshes": [
+        {
+            "primitives": [
+                {
+                    "attributes": {
+                        "NORMAL": 1,
+                        "POSITION": 2,
+                        "TANGENT": 3,
+                        "TEXCOORD_0": 4
+                    },
+                    "indices": 0,
+                    "mode": 4,
+                    "material": 0
+                },
+                {
+                    "attributes": {
+                        "NORMAL": 6,
+                        "POSITION": 7
+                    },
+                    "indices": 5,
+                    "mode": 4,
+                    "material": 0
+                }
+            ],
+            "name": "Environment_5:RoomShape"
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5123,
+            "count": 25590,
+            "max": [
+                13072
+            ],
+            "min": [
+                0
+            ],
+            "type": "SCALAR"
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 13073,
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 156876,
+            "componentType": 5126,
+            "count": 13073,
+            "max": [
+                347.9997253417969,
+                367.4640808105469,
+                508.6510620117188
+            ],
+            "min": [
+                -345.5634460449219,
+                -0.000004736337814392755,
+                -511.139892578125
+            ],
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 13073,
+            "max": [
+                0.9999999403953552,
+                0.9999999403953552,
+                1.0,
+                1.0
+            ],
+            "min": [
+                -0.9999999403953552,
+                -0.9999999403953552,
+                -1.0,
+                -1.0
+            ],
+            "type": "VEC4"
+        },
+        {
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 13073,
+            "max": [
+                2.9436357021331789,
+                1.0
+            ],
+            "min": [
+                0.006981268525123596,
+                -1.9880526065826417
+            ],
+            "type": "VEC2"
+        },
+        {
+            "bufferView": 0,
+            "byteOffset": 51180,
+            "componentType": 5123,
+            "count": 312,
+            "max": [
+                123
+            ],
+            "min": [
+                0
+            ],
+            "type": "SCALAR"
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 313752,
+            "componentType": 5126,
+            "count": 124,
+            "max": [
+                0.9999999403953552,
+                1.0,
+                0.00003505673157633282
+            ],
+            "min": [
+                0.0,
+                -1.0,
+                -0.00003505673157633282
+            ],
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 315240,
+            "componentType": 5126,
+            "count": 124,
+            "max": [
+                326.1023559570313,
+                212.31968688964845,
+                386.3167419433594
+            ],
+            "min": [
+                322.6445617675781,
+                161.53822326660157,
+                355.4884948730469
+            ],
+            "type": "VEC3"
+        }
+    ],
+    "materials": [
+        {
+            "pbrMetallicRoughness": {}
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 630480,
+            "byteLength": 51804,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 209168,
+            "byteLength": 316728,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 209168,
+            "byteStride": 16,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 525896,
+            "byteLength": 104584,
+            "byteStride": 8,
+            "target": 34962
+        }
+    ],
+    "buffers": [
+        {
+            "byteLength": 682284,
+            "uri": "FinalEnvironment0.bin"
+        }
+    ]
+}
