@@ -146,7 +146,12 @@ AFRAME.registerComponent('pick-me',
                 add_w1 = false;
                 add_w2 = false;
                 add_w3 = false;
-                
+                document.getElementById("weight1").setAttribute('position',-8.25 + " " + 1.6 + " " + 0.45);
+                document.getElementById("weight1").components['dynamic-body'].syncToPhysics();
+                document.getElementById("weight2").setAttribute('position',-7.1 + " " + 1.6 + " " + 0.5);
+                document.getElementById("weight2").components['dynamic-body'].syncToPhysics();
+                document.getElementById("weight3").setAttribute('position',-6 + " " + 1.6 + " " + 0.15);
+                document.getElementById("weight3").components['dynamic-body'].syncToPhysics();
 
               }
             }
