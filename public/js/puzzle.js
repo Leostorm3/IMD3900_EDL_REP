@@ -138,15 +138,19 @@ AFRAME.registerComponent('pick-me',
           var cam =  document.getElementById("head");
 
             el.addEventListener('click', function () {
+              if(balance_cheker==false){
               if (Balance_weight ==Banlance_answer){
                 balance_cheker = true;
                 document.getElementById("textb").setAttribute('text', "value:Weight puzzle done");
-              }
-             if (balance_cheker ==true){
-              
-              
+              }else{
+                Balance_weight=0; 
+                document.getElementById("Weight1").setAttribute('position',-8 + " " + 1.8 + " " + 6);
+                document.getElementById("Weight2").setAttribute('position',-8.5 + " " + 1.8 + " " + 6);
+                document.getElementById("Weight3").setAttribute('position',-9 + " " + 1.8 + " " + 6);
 
-             }
+
+              }
+            }
         
       });
         }  
